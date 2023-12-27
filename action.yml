@@ -1,6 +1,13 @@
 # action.yml
 name: 'Forge'
 description: 'Run forge commands for a project'
+inputs:
+  step:
+    description: 'Step to forge'
+    required: true
+    default: 'help'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.steps }}
